@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Homework</title>
+  </head>
+  <body>
+    <div id="main-div">
+      <ol id="marital-status">
+        <li>testing</li>
+      </ol>
+    </div>
+  </body>
+</html>
+
+<script>
+  let doc = document;
+  const mainDiv = doc.getElementById("main-div");
+
+  let removeTag = doc.getElementById("marital-status");
+  removeTag.remove();
+
+  let newHeading = doc.createElement("h1");
+  newHeading.innerHTML = "Choose your Marital Status";
+  mainDiv.append(newHeading);
+
+  let statusLists = ["Single", "Married", "Do not Share"];
+
+  for (i = 0; i < statusLists.length; i++) {
+    newInput = doc.createElement("input");
+    newInput.setAttribute("type", "radio");
+    newInput.setAttribute("name", "status");
+
+    newLabel = doc.createElement("label");
+    newLabel.innerHTML = `${statusLists[i]}`;
+
+    mainDiv.append(newInput);
+    mainDiv.append(newLabel);
+  }
+</script>
